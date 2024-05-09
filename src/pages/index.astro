@@ -1,27 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProgrammingSlider from '../components/ProgrammingSlider.astro';
-import VideoProductionSlider from '../components/VideoProductionSlider.astro';
+
 ---
 
-<Layout title="Inicio">
-  <div class="carousel mt-16">
-	<img src="assets/Segundoplano_logo.webp" alt="Slide 1" class="w-full h-auto">
-    <!-- Slider de Programación y Diseño Web -->
-    <ProgrammingSlider />
-    
-    <!-- Slider de Producción Audiovisual -->
-    <VideoProductionSlider />
+      
+  <div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
+    <div class="max-w-screen-lg mx-auto flex justify-between items-center">
+      <p class="text-sm">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
+      <button class="bg-white text-gray-900 px-4 py-2 rounded shadow hover:bg-gray-200">Aceptar</button>
+    </div>
   </div>
-	  
-	<div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
-		<div class="max-w-screen-lg mx-auto flex justify-between items-center">
-			<p class="text-sm">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
-			<button class="bg-white text-gray-900 px-4 py-2 rounded shadow hover:bg-gray-200">Aceptar</button>
-		</div>
-	</div>
 
-	<!-- Aquí puedes agregar más contenido, como secciones adicionales, servicios, etc. -->
+  <!-- Aquí puedes agregar más contenido, como secciones adicionales, servicios, etc. -->
 
-</Layout>
+  <!-- Contenedor principal de Swiper -->
+<div class="swiper">
+  <!-- Wrapper adicional requerido -->
+  <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide">
+      <h2>Desarrollo Web</h2>
+      <p>Texto descriptivo del Slide 1.</p>
+      <img src="assets/productoravideo.png" alt="Imagen 1" />
+    </div>
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+      <h2>Redes Sociales</h2>
+      <p>Texto descriptivo del Slide 2.</p>
+      <img src="/images/image2.jpeg" alt="Imagen 2" />
+    </div>
+    <!-- Slide 3 -->
+    <div class="swiper-slide">
+      <h2>SEO</h2>
+      <p>Texto descriptivo del Slide 3.</p>
+      <img src="/images/image3.jpeg" alt="Imagen 3" />
+    </div>
+    <!-- Slide 4 -->
+    <div class="swiper-slide">
+      <h2>Redaccion de Copy y Blog</h2>
+      <p>Texto descriptivo del Slide 4.</p>
+      <img src="/images/image4.jpeg" alt="Imagen 4" />
+    </div>
+    <!-- Slide 5 -->
+    <div class="swiper-slide">
+      <h2>Google Ads</h2>
+      <p>Texto descriptivo del Slide 4.</p>
+      <img src="/images/image4.jpeg" alt="Imagen 4" />
+    </div>
+    <!-- Slide 4 -->
+    <div class="swiper-slide">
+      <h2>Networking para profesionales</h2>
+      <p>Texto descriptivo del Slide 4.</p>
+      <img src="/images/image4.jpeg" alt="Imagen 4" />
+    </div>
+  </div>
 
+  <!-- Botones de navegación -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+  
+<script>
+  // Core de Swiper y estilos
+  import Swiper from 'swiper';
+  import 'swiper/css';
+  // Módulo Navigation de Swiper y estilos
+  import { Navigation } from "swiper/modules";
+  import "swiper/css/navigation";
+
+  // Configurar Swiper
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation], // definir los módulos a usar
+    loop: true,            // definir si los slides estarán en bucle
+    slidesPerView: 3,      // agregar número de slides para la pantalla
+    spaceBetween: 40,      // separación entre slides en px
+    navigation: {          // definir botones next y prev para el módulo Navigation
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next",
+    }
+  });
+</script>
