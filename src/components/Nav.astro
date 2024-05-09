@@ -1,0 +1,98 @@
+---
+
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+/** Main menu items */
+const textLinks: { label: string; href: string }[] = [
+	{ label: 'Inicio', href: '/' },
+	{ label: 'Servicios', href: '/' },
+	{ label: 'Contacto', href: '/' },
+    { label: 'Aviso de Cookies', href: '/' },
+    { label: 'Términos y condiciones', href: '/' },
+];
+
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Título Aquí</title>
+    <!-- Enlace al archivo CSS de Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="bg-gray-800">
+    <div class="menu-header flex justify-between items-center px-4 py-2">
+        <a href="/" class="flex items-center text-white">
+            <Icon icon=/>
+            <span class="ml-2 font-bold">SegundoPlano</span>
+        </a>
+        <menu-button>
+            <template>
+                <button class="menu-button" aria-expanded="false">
+                    <span class="sr-only">Menu</span>
+                    <Icon icon=/>
+                </button>
+            </template>
+        </menu-button>
+    </div>
+    <noscript>...</noscript>
+    <noscript>...</noscript>
+    <div id="menu-content" hidden>
+        <ul class="nav-items">
+          
+        </ul>
+        <div class="menu-footer flex justify-between items-center px-4 py-2">
+            <div class="socials">
+                { /* Aquí puedes agregar tus íconos de redes sociales usando Tailwind */ }
+            </div>
+            <div class="theme-toggle">
+                <ThemeToggle />
+            </div>
+        </div>
+    </div>
+</nav>
+
+<script>
+	class MenuButton extends HTMLElement {
+		constructor() {
+			super();
+
+			// Inject menu toggle button when JS runs.
+			this.appendChild(this.querySelector('template')!.content.cloneNode(true));
+			const btn = this.querySelector('button')!;
+
+			// Hide menu (shown by default to support no-JS browsers).
+			const menu = document.getElementById('menu-content')!;
+			menu.hidden = true;
+			// Add "menu-content" class in JS to avoid covering content in non-JS browsers.
+			menu.classList.add('menu-content');
+
+			/** Set whether the menu is currently expanded or collapsed. */
+			const setExpanded = (expand: boolean) => {
+				btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+				menu.hidden = !expand;
+			};
+
+			// Toggle menu visibility when the menu button is clicked.
+			btn.addEventListener('click', () => setExpanded(menu.hidden));
+
+			// Hide menu button for large screens.
+			const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
+				setExpanded(e.matches);
+				btn.hidden = e.matches;
+			};
+			const mediaQueries = window.matchMedia('(min-width: 50em)');
+			handleViewports(mediaQueries);
+			mediaQueries.addEventListener('change', handleViewports);
+		}
+	}
+	customElements.define('menu-button', MenuButton);
+</script>
+
+</body>
+</html>
+
