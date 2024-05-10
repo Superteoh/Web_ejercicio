@@ -1,9 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Swiper from 'swiper';
-import 'swiper/css';
-import { Navigation } from "swiper/modules";
-import "swiper/css/navigation";
+
 
 ---
 
@@ -11,23 +8,35 @@ import "swiper/css/navigation";
 <style>
   .swiper-container {
     width: 80%; /* Ajusta el ancho del contenedor según tu preferencia */
+    max-width: 800px; /* Establece un ancho máximo para el contenedor */
+    height: 300px; /* Establece la altura del contenedor del slider */
     margin: 0 auto; /* Centra el contenedor horizontalmente */
     border: 1px solid #ccc; /* Agrega un borde al contenedor */
     border-radius: 10px; /* Ajusta el radio de los bordes */
     overflow: hidden; /* Evita que los sliders se desborden */
   }
-  
+
   .swiper-slide {
-    display: flex; /* Usa flexbox para centrar verticalmente */
+    position: relative; /* Añade posición relativa para el posicionamiento absoluto del texto */
+    display: flex; /* Usa flexbox para centrar vertical y horizontalmente */
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    border-right: 1px solid #ccc; /* Añade un borde derecho a cada slide */
-    padding: 20px; /* Añade espacio interno a cada slide */
+    width: 100%; /* Ajusta el ancho de cada slide al 100% del contenedor */
   }
-  
-  /* Estilo para el último slide, elimina el borde derecho */
-  .swiper-slide:last-child {
-    border-right: none;
+
+  .swiper-slide img {
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen al 100% del slide */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+
+  .swiper-slide b {
+    position: absolute; /* Posiciona el texto absolutamente */
+    bottom: 20px; /* Ajusta la posición vertical del texto */
+    left: 20px; /* Ajusta la posición horizontal del texto */
+    color: white; /* Establece el color del texto */
+    font-weight: bold; /* Ajusta el peso de la fuente */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto para mejor legibilidad */
+    z-index: 1; /* Asegura que el texto esté sobre la imagen */
   }
 </style>
 
@@ -43,62 +52,62 @@ import "swiper/css/navigation";
       data-pswp-width="800" data-pswp-height="800"
       data-cropped="true"
   >
-    <img src="assets/inicio_segundoplano.webp" alt="">
+    <img src="assets/desarrolloweb.webp" alt="">
     <b>Desarrollo Web</b>
     <b>Texto descriptivo del Slide 1.</b>s
   </a>
 
-  <div
+  <a 
       class="swiper-slide"
       href="src/content/servicios/rrss.md"
       data-pswp-width="800" data-pswp-height="800"
       data-cropped="true"
     >
-      <img src="assets/inicio_segundoplano.webp" alt="">
+      <img src="assets/rrss.webp" alt="">
       <b>Redes Sociales</b>
       <b>Texto descriptivo del Slide 2.</b>
-    </div>
-    <div
+    </a>
+    <a 
       class="swiper-slide"
-      data-src="/images/image3.jpeg"
+      href="src/content/servicios/seo.md"
       data-pswp-width="800" data-pswp-height="800"
       data-cropped="true"
     >
-      <img src="assets/Segundoplano_logo.webp" alt="">
+      <img src="assets/seo.webp" alt="">
       <b>SEO</b>
       <b>Texto descriptivo del Slide 3.</b>
-    </div>
-    <div
+    </a>
+    <a 
       class="swiper-slide"
-      data-src="/images/image4.jpeg"
+      href="src/content/servicios/blogs.md"
       data-pswp-width="800" data-pswp-height="800"
       data-cropped="true"
     >
-      <img src="/images/image4.jpeg" alt="">
+      <img src="/assets/blogs.webp" alt="">
       <b>Redaccion de Copy y Blog</b>
       <b>Texto descriptivo del Slide 4.</b>
-    </div>
-    <div
+    </a>
+    <a 
       class="swiper-slide"
-      data-src="/images/image5.jpeg"
+      href="src/content/servicios/googleads.md"
       data-pswp-width="800" data-pswp-height="800"
       data-cropped="true"
     >
-      <img src="/images/image4.jpeg" alt="">
+      <img src="/assets/googleads.webp" alt="">
       <b>Google Ads</b>
       <b>Texto descriptivo del Slide 5.</b>
-    </div>
-    <div
+    </a>
+    <a 
       class="swiper-slide"
-      data-src="/images/image6.jpeg"
+      href="src/content/servicios/networking.md"
       data-pswp-width="800" data-pswp-height="800"
       data-cropped="true"
     >
-      <img src="/images/image4.jpeg" alt="">
+      <img src="/assets/networking.webp" alt="">
       <b>Networking para profesionales</b>
       <b>Texto descriptivo del Slide 6</b>
 
-    </div>
+    </a>
   </div>
 
   <!-- Botones de navegación -->
@@ -116,6 +125,10 @@ import "swiper/css/navigation";
 
 
 <script>
+import Swiper from 'swiper';
+import 'swiper/css';
+import { Navigation } from "swiper/modules";
+import "swiper/css/navigation";
   // Core de Swiper y estilos
 
   // Configurar Swiper
@@ -129,14 +142,6 @@ import "swiper/css/navigation";
       nextEl: ".swiper-button-next",
     }
   });
-
-
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: '#my-slider',
-    children: 'div',
-    pswpModule: () => import('photoswipe')
-  });
-  lightbox.init();
 
 </script>
 
