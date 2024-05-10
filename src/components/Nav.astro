@@ -2,44 +2,66 @@
 
 import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import type { iconPaths } from './IconPaths';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Inicio', href: '/' },
-	{ label: 'Servicios', href: '/' },
-	{ label: 'Contacto', href: '/' },
-    { label: 'Aviso de Cookies', href: '/' },
-    { label: 'Términos y condiciones', href: '/' },
+	{ label: 'Servicios', href: '/servicios/' },
+	{ label: 'Contacto', href: '/contacto/' },
+    { label: 'Aviso de Cookies', href: '/cookies/' },
+    { label: 'Términos y condiciones', href: '/terminos/' },
 ];
 
 ---
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Título Aquí</title>
-    <!-- Enlace al archivo CSS de Tailwind -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body>
 
-<nav class="bg-gray-800">
-    <div class="menu-header flex justify-between items-center px-4 py-2">
-        <a href="/" class="flex items-center text-white">
-            <Icon icon=/>
-            <span class="ml-2 font-bold">SegundoPlano</span>
+<!-- Enlace al archivo CSS de Tailwind -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!-- ruta a los estilos globales de css -->
+<link rel="stylesheet" href="src/styles//global.css">
+
+
+<nav class="bg-white">
+	<div class="menu-header flex justify-between items-center px-4 py-2">
+        <a href="/" class="flex items-center">
+            <img src="assets/svg/logo.webp" alt="Logo" class="h-6 w-auto mr-2"> <!-- Agrego el logo como una imagen en icono-->
+            <span class="ml-2 font-bold">
+                <span class="text-anounce">Anounce</span><br> 
+                <span class="text-me">me</span> 
+            </span>
         </a>
         <menu-button>
             <template>
                 <button class="menu-button" aria-expanded="false">
                     <span class="sr-only">Menu</span>
-                    <Icon icon=/>
+                    <Icon icon="list" />
                 </button>
             </template>
         </menu-button>
     </div>
     <noscript>...</noscript>
+    <ul class="nav-items">
+        {
+            textLinks.map(({ label, href }) => (
+                <li>
+                    <a
+                        aria-current={Astro.url.pathname === href}
+                        class:list={[
+                            'link',
+                            {
+                                active:
+                                    Astro.url.pathname === href ||
+                                    (href !== '/' && Astro.url.pathname.startsWith(href)),
+                            },
+                        ]}
+                        href={href}
+                    >
+                        {label}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
     <noscript>...</noscript>
     <div id="menu-content" hidden>
         <ul class="nav-items">
@@ -96,3 +118,85 @@ const textLinks: { label: string; href: string }[] = [
 </body>
 </html>
 
+<style>
+	nav {
+		z-index: 9999;
+		position: relative;
+		font-family: var(--font-brand);
+		font-weight: 500;
+		margin-bottom: 3.5rem;
+	}
+        .menu-header {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.5rem;
+		padding: 1.5rem;
+	}
+	.site-title {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+		line-height: 1.1;
+		color: var(--gray-0);
+		text-decoration: none;
+	}
+
+	.menu-button {
+		position: relative;
+		display: flex;
+		border: 0;
+		border-radius: 999rem;
+		padding: 0.5rem;
+		font-size: 1.5rem;
+		color: var(--gray-300);
+		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		box-shadow: var(--shadow-md);
+	}
+
+	.menu-button[aria-expanded='true'] {
+		color: var(--gray-0);
+		background: linear-gradient(180deg, var(--gray-600), transparent),
+			radial-gradient(var(--gray-900), var(--gray-800) 150%);
+	}
+
+	.menu-button[hidden] {
+		display: none;
+	}
+
+	.menu-button::before {
+		position: absolute;
+		inset: -1px;
+		content: '';
+		background: var(--gradient-stroke);
+		border-radius: 999rem;
+		z-index: -1;
+	}
+
+	.menu-content {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	.nav-items {
+        display: flex;
+        justify-content: center; /* Centrar los enlaces horizontalmente */
+        margin: 0 auto; /* Alinear al centro */
+        padding: 1rem 0; /* Agregar espacio entre los enlaces y el borde */
+    }
+
+    .nav-items li {
+        margin: 0 1rem; /* Espacio entre los enlaces */
+        position: relative; /* Posición relativa para animación */
+    }
+	.nav-items li a {
+    position: relative;
+    text-decoration: none;
+    color: var(--gray-300); /* Color de texto base */
+    transition: transform 0.3s ease; /* Transición para el efecto de movimiento */
+}
+	.nav-items li a:hover {
+		transform: translateY(-2px); /* Mover hacia arriba al pasar el ratón */
+		color: var(--gray-400); /* Cambia el color de texto en hover */
+	}
+</style>

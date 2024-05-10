@@ -1,103 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// Photoswipe y estilos
-
+import Swiper from 'swiper';
+import 'swiper/css';
+import { Navigation } from "swiper/modules";
+import "swiper/css/navigation";
 
 ---
-<Layout></Layout>
-      
-
-<!-- Contenedor principal de Swiper -->
+<Layout>
+ 
+  <!-- Contenedor principal de Swiper -->
 <div class="swiper">
   <!-- Wrapper adicional requerido -->
-  <div class="swiper-wrapper" id="my-slider">
-    <!-- Los slides -->
-    <a 
-      class="swiper-slide"
-      href="assets/productoravideo.png"
-      data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
-      data-cropped="true"
-    >
-      <img src="assets/productoravideo.png" alt="">
+  <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+    <div class="swiper-slide">
       <h2>Desarrollo Web</h2>
       <p>Texto descriptivo del Slide 1.</p>
-    </a>
-    <a
-      class="swiper-slide"
-      href="assets/inicio_segundoplano.webp"
-      data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
-      data-cropped="true"
-    >
-      <img src="assets/inicio_segundoplano.webp" alt="">
+      <img src="assets/productoravideo.png" alt="Imagen 1" />
+    </div>
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
       <h2>Redes Sociales</h2>
       <p>Texto descriptivo del Slide 2.</p>
-    </a>
-    <a
-      class="swiper-slide"
-      href="/images/image3.jpeg"
-      data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
-      data-cropped="true"
-    >
-      <img src="assets/Segundoplano_logo.webp" alt="">
+      <img src="/images/image2.jpeg" alt="Imagen 2" />
+    </div>
+    <!-- Slide 3 -->
+    <div class="swiper-slide">
       <h2>SEO</h2>
       <p>Texto descriptivo del Slide 3.</p>
-    </a>
-    <a
-      class="swiper-slide"
-      href="/images/image4.jpeg"
-      data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
-      data-cropped="true"
-    >
-      <img src="/images/image4.jpeg" alt="">
+      <img src="/images/image3.jpeg" alt="Imagen 3" />
+    </div>
+    <!-- Slide 4 -->
+    <div class="swiper-slide">
       <h2>Redaccion de Copy y Blog</h2>
       <p>Texto descriptivo del Slide 4.</p>
-    </a>
-    <a
-      class="swiper-slide"
-      href="/images/image5.jpeg"
-      data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
-      data-cropped="true"
-    >
-      <img src="/images/image4.jpeg" alt="">
+      <img src="/images/image4.jpeg" alt="Imagen 4" />
+    </div>
+    <!-- Slide 5 -->
+    <div class="swiper-slide">
       <h2>Google Ads</h2>
-      <p>Texto descriptivo del Slide 5.</p>
-     </a>
-     <a
-      class="swiper-slide"
-      href="/images/image5.jpeg"
-      data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
-      data-cropped="true"
-    >
-      <img src="/images/image4.jpeg" alt="">
+      <p>Texto descriptivo del Slide 4.</p>
+      <img src="/images/image4.jpeg" alt="Imagen 4" />
+    </div>
+    <!-- Slide 4 -->
+    <div class="swiper-slide">
       <h2>Networking para profesionales</h2>
-      <p>Texto descriptivo del Slide 6</p>
-     </a>
+      <p>Texto descriptivo del Slide 4.</p>
+      <img src="/images/image4.jpeg" alt="Imagen 4" />
+    </div>
   </div>
+
   <!-- Botones de navegación -->
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
+</div>
 
-  <div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
+<div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
     <div class="max-w-screen-lg mx-auto flex justify-between items-center">
       <p class="text-sm">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
       <button class="bg-white text-gray-900 px-4 py-2 rounded shadow hover:bg-gray-200">Aceptar</button>
     </div>
   </div>
+  
+</Layout>
 <script>
   // Core de Swiper y estilos
-  import Swiper from 'swiper';
-  import 'swiper/css';
-  // Módulo Navigation de Swiper y estilos
-  import { Navigation } from "swiper/modules";
-  import "swiper/css/navigation";
-  import PhotoSwipeLightbox from 'photoswipe/lightbox';
-  import 'photoswipe/style.css';
 
   // Configurar Swiper
   const swiper = new Swiper(".swiper", {
@@ -110,11 +77,151 @@ import Layout from '../layouts/Layout.astro';
       nextEl: ".swiper-button-next",
     }
   });
-
-    const lightbox = new PhotoSwipeLightbox({
-    gallery: '#my-slider',
-    children: 'a',
-    pswpModule: () => import('photoswipe')
-  });
-    lightbox.init();
 </script>
+
+<style>
+
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.roles {
+		display: none;
+	}
+
+	.hero img {
+		aspect-ratio: 5 / 4;
+		object-fit: cover;
+		object-position: top;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	@media (min-width: 50em) {
+		.hero {
+			display: grid;
+			grid-template-columns: 6fr 4fr;
+			padding-inline: 2.5rem;
+			gap: 3.75rem;
+		}
+
+		.roles {
+			margin-top: 0.5rem;
+			display: flex;
+			gap: 0.5rem;
+		}
+
+		.hero img {
+			aspect-ratio: 3 / 4;
+			border-radius: 4.5rem;
+			object-fit: cover;
+		}
+	}
+
+	/* ====================================================== */
+
+	.section {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.with-background {
+		position: relative;
+	}
+
+	.with-background::before {
+		--hero-bg: var(--bg-image-subtle-2);
+
+		content: '';
+		position: absolute;
+		pointer-events: none;
+		left: 50%;
+		width: 100vw;
+		aspect-ratio: calc(2.25 / var(--bg-scale));
+		top: 0;
+		transform: translateY(-75%) translateX(-50%);
+		background:
+			url('/assets/backgrounds/noise.png') top center/220px repeat,
+			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+			var(--gray-999);
+		background-blend-mode: overlay, normal, normal, normal;
+		mix-blend-mode: var(--bg-blend-mode);
+		z-index: -1;
+	}
+
+	.with-background.bg-variant::before {
+		--hero-bg: var(--bg-image-subtle-1);
+	}
+
+	.section-header {
+		justify-self: center;
+		text-align: center;
+		max-width: 50ch;
+		font-size: var(--text-md);
+		color: var(--gray-300);
+	}
+
+	.section-header h3 {
+		font-size: var(--text-2xl);
+	}
+
+	@media (min-width: 50em) {
+		.section {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
+			gap: 5rem;
+		}
+
+		.section.with-cta {
+			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		}
+
+		.section-header {
+			grid-area: header;
+			font-size: var(--text-lg);
+		}
+
+		.section-header h3 {
+			font-size: var(--text-4xl);
+		}
+
+		.with-cta .section-header {
+			justify-self: flex-start;
+			text-align: left;
+		}
+
+		.gallery {
+			grid-area: gallery;
+		}
+
+		.cta {
+			grid-area: cta;
+		}
+	}
+
+	/* ====================================================== */
+
+	.mention-card {
+		display: flex;
+		height: 7rem;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		color: var(--gray-300);
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	@media (min-width: 50em) {
+		.mention-card {
+			border-radius: 1.5rem;
+			height: 9.5rem;
+		}
+	}
+	@import "/src/styles/global.css";
+</style>
