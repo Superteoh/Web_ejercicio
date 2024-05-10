@@ -5,90 +5,109 @@ import Layout from '../layouts/Layout.astro';
 
 ---
 <Layout></Layout>
-      
+<style>
+  .swiper-container {
+    width: 80%; /* Ajusta el ancho del contenedor según tu preferencia */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    border: 1px solid #ccc; /* Agrega un borde al contenedor */
+    border-radius: 10px; /* Ajusta el radio de los bordes */
+    overflow: hidden; /* Evita que los sliders se desborden */
+  }
+  
+  .swiper-slide {
+    display: flex; /* Usa flexbox para centrar verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    border-right: 1px solid #ccc; /* Añade un borde derecho a cada slide */
+    padding: 20px; /* Añade espacio interno a cada slide */
+  }
+  
+  /* Estilo para el último slide, elimina el borde derecho */
+  .swiper-slide:last-child {
+    border-right: none;
+  }
+</style>
+
 
 <!-- Contenedor principal de Swiper -->
-<div class="swiper">
+<div class="swiper-container">
   <!-- Wrapper adicional requerido -->
   <div class="swiper-wrapper" id="my-slider">
     <!-- Los slides -->
-    <a 
+      <a 
       class="swiper-slide"
-      href="assets/productoravideo.png"
+      href="src/content/servicios/desarrolloweb.md"
       data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
       data-cropped="true"
-    >
-      <img src="assets/productoravideo.png" alt="">
-      <h2>Desarrollo Web</h2>
-      <p>Texto descriptivo del Slide 1.</p>
-    </a>
-    <a
+  >
+    <img src="assets/inicio_segundoplano.webp" alt="">
+    <b>Desarrollo Web</b>
+    <b>Texto descriptivo del Slide 1.</b>s
+  </a>
+
+  <div
       class="swiper-slide"
-      href="assets/inicio_segundoplano.webp"
+      href="src/content/servicios/rrss.md"
       data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
       data-cropped="true"
     >
       <img src="assets/inicio_segundoplano.webp" alt="">
-      <h2>Redes Sociales</h2>
-      <p>Texto descriptivo del Slide 2.</p>
-    </a>
-    <a
+      <b>Redes Sociales</b>
+      <b>Texto descriptivo del Slide 2.</b>
+    </div>
+    <div
       class="swiper-slide"
-      href="/images/image3.jpeg"
+      data-src="/images/image3.jpeg"
       data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
       data-cropped="true"
     >
       <img src="assets/Segundoplano_logo.webp" alt="">
-      <h2>SEO</h2>
-      <p>Texto descriptivo del Slide 3.</p>
-    </a>
-    <a
+      <b>SEO</b>
+      <b>Texto descriptivo del Slide 3.</b>
+    </div>
+    <div
       class="swiper-slide"
-      href="/images/image4.jpeg"
+      data-src="/images/image4.jpeg"
       data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
       data-cropped="true"
     >
       <img src="/images/image4.jpeg" alt="">
-      <h2>Redaccion de Copy y Blog</h2>
-      <p>Texto descriptivo del Slide 4.</p>
-    </a>
-    <a
+      <b>Redaccion de Copy y Blog</b>
+      <b>Texto descriptivo del Slide 4.</b>
+    </div>
+    <div
       class="swiper-slide"
-      href="/images/image5.jpeg"
+      data-src="/images/image5.jpeg"
       data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
       data-cropped="true"
     >
       <img src="/images/image4.jpeg" alt="">
-      <h2>Google Ads</h2>
-      <p>Texto descriptivo del Slide 5.</p>
-     </a>
-     <a
+      <b>Google Ads</b>
+      <b>Texto descriptivo del Slide 5.</b>
+    </div>
+    <div
       class="swiper-slide"
-      href="/images/image5.jpeg"
+      data-src="/images/image6.jpeg"
       data-pswp-width="800" data-pswp-height="800"
-      target="_blank"
       data-cropped="true"
     >
       <img src="/images/image4.jpeg" alt="">
-      <h2>Networking para profesionales</h2>
-      <p>Texto descriptivo del Slide 6</p>
-     </a>
+      <b>Networking para profesionales</b>
+      <b>Texto descriptivo del Slide 6</b>
+    </div>
   </div>
   <!-- Botones de navegación -->
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
+</div>
 
-  <div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
-    <div class="max-w-screen-lg mx-auto flex justify-between items-center">
-      <p class="text-sm">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
-      <button class="bg-white text-gray-900 px-4 py-2 rounded shadow hover:bg-gray-200">Aceptar</button>
-    </div>
+<div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
+  <div class="max-w-screen-lg mx-auto flex justify-between items-center">
+    <p class="text-sm">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
+    <button class="bg-white text-gray-900 px-4 py-2 rounded shadow hover:bg-gray-200">Aceptar</button>
   </div>
+</div>
+
 <script>
   // Core de Swiper y estilos
   import Swiper from 'swiper';
@@ -100,10 +119,10 @@ import Layout from '../layouts/Layout.astro';
   import 'photoswipe/style.css';
 
   // Configurar Swiper
-  const swiper = new Swiper(".swiper", {
+  const swiper = new Swiper(".swiper-container", {
     modules: [Navigation], // definir los módulos a usar
-    loop: true,            // definir si los slides estarán en bucle
-    slidesPerView: 3,      // agregar número de slides para la pantalla
+    slidesPerView: 'auto', // mostrar solo un slide a la vez
+    centeredSlides: true,  // centrar el slide actual
     spaceBetween: 40,      // separación entre slides en px
     navigation: {          // definir botones next y prev para el módulo Navigation
       prevEl: ".swiper-button-prev",
@@ -111,10 +130,10 @@ import Layout from '../layouts/Layout.astro';
     }
   });
 
-    const lightbox = new PhotoSwipeLightbox({
+  const lightbox = new PhotoSwipeLightbox({
     gallery: '#my-slider',
-    children: 'a',
+    children: 'div',
     pswpModule: () => import('photoswipe')
   });
-    lightbox.init();
+  lightbox.init();
 </script>
