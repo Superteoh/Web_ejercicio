@@ -4,24 +4,24 @@
 	--gray-50: #eaecef;
 	--gray-100: #371152;
 	--gray-200: #3d4663;
-	--gray-300: #d57917;
-	--gray-400: #ddb815;
+	--gray-300: #d29511;
+	--gray-400: #835407;
 	--gray-500: #8490b5;
 	--gray-600: #c8a3a6;
-	--gray-700: #c3cadb;
+	--gray-700: #f2ea7f;
 	--gray-800: #dde2e1;
 	--gray-900: #0c0d0e;
 	--gray-999-basis: 0, 0%, 100%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
-	--gray-999: #0b0508;
+	--gray-999: #fcfbfb;
 
 	--brown-color: #8B4513; 
     --orange-color: #FFA500;
 
 	--accent-light: #5c0909;
-	--accent-regular: #088859;
+	--accent-regular: #d29511;
 	--accent-dark: #00564a;
-	--accent-overlay: hsla(297, 66%, 53%, 0.33);
+	--accent-overlay: hsla(47, 55%, 23%, 0.33);
 	--accent-subtle-overlay: var(--accent-overlay);
 	--accent-text-over: var(--gray-999);
 
@@ -40,7 +40,7 @@
 	);
 	--gradient-accent-orange: linear-gradient(
 		150deg,
-		rgb(190, 34, 154),
+		rgb(10, 34, 153),
 		var(--accent-regular),
 		var(--accent-dark)
 	);
@@ -80,30 +80,30 @@
 	--gray-50: #f3f4f7;
 	--gray-100: #e3e6ee;
 	--gray-200: #c3cadb;
-	--gray-300: #eba630;
+	--gray-300: #7c5613;
 	--gray-400: #ed9f0c;
 	--gray-500: #6474a2;
 	--gray-600: #505d84;
-	--gray-700: #3d4663;
+	--gray-700: #a0661f;
 	--gray-800: #283044;
 	--gray-900: #141925;
 	--gray-999-basis: 225, 31%, 5%;
 	--gray-999: #090b11;
 
 	--accent-light: #1c0056;
-	--accent-regular: #cd438f;
-	--accent-dark: #c561f6;
-	--accent-overlay: hsla(300, 1%, 26%, 0.33);
+	--accent-regular: #604006;
+	--accent-dark: #875913;
+	--accent-overlay: hsla(60, 12%, 97%, 0.33);
 	--accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
 	--accent-text-over: var(--gray-0);
 
 	--link-color: var(--accent-dark);
 
-	--gradient-stop-1: #a8c611;
+	--gradient-stop-1: #c6a211;
 	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
 	--gradient-accent-orange: linear-gradient(
 		150deg,
-		rgb(233, 123, 239),
+		rgb(238, 227, 75),
 		var(--accent-regular),
 		var(--accent-light)
 	);
@@ -253,13 +253,5 @@ h5 {
 	}
 	.lg\:gap-48 {
 		gap: 12rem;
-	}
-
-	.text-anounce {
-		color: var(--brown-color); /* Color marrón para "anounce" */
-	}
-	
-	.text-me {
-		color: var(--orange-color); /* Color naranja para "me" */
 	}
 }

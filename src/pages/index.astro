@@ -1,9 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Swiper from 'swiper';
-import 'swiper/css';
-import { Navigation } from "swiper/modules";
-import "swiper/css/navigation";
 
 ---
 
@@ -48,7 +44,7 @@ import "swiper/css/navigation";
     <b>Texto descriptivo del Slide 1.</b>s
   </a>
 
-  <div
+  <a
       class="swiper-slide"
       href="src/content/servicios/rrss.md"
       data-pswp-width="800" data-pswp-height="800"
@@ -57,7 +53,7 @@ import "swiper/css/navigation";
       <img src="assets/inicio_segundoplano.webp" alt="">
       <b>Redes Sociales</b>
       <b>Texto descriptivo del Slide 2.</b>
-    </div>
+</a>
     <div
       class="swiper-slide"
       data-src="/images/image3.jpeg"
@@ -117,6 +113,10 @@ import "swiper/css/navigation";
 
 <script>
   // Core de Swiper y estilos
+  	import Swiper from 'swiper';
+	import 'swiper/css';
+	import { Navigation } from "swiper/modules";
+	import "swiper/css/navigation";
 
   // Configurar Swiper
   const swiper = new Swiper(".swiper-container", {
@@ -129,14 +129,6 @@ import "swiper/css/navigation";
       nextEl: ".swiper-button-next",
     }
   });
-
-
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: '#my-slider',
-    children: 'div',
-    pswpModule: () => import('photoswipe')
-  });
-  lightbox.init();
 
 </script>
 
@@ -262,8 +254,6 @@ import "swiper/css/navigation";
 			grid-area: cta;
 		}
 	}
-
-	/* ====================================================== */
 
 	.mention-card {
 		display: flex;

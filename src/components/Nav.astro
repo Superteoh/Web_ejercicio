@@ -13,6 +13,10 @@ const textLinks: { label: string; href: string }[] = [
     { label: 'Términos y condiciones', href: '/terminos/' },
 ];
 
+const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; target?: string }[] = [
+	{ label: 'GitHub', href: 'https://github.com/Superteoh/Web_ejercicio.git', icon: 'github-logo',target: '_blank' },
+];
+
 ---
 
 <!-- Enlace al archivo CSS de Tailwind -->
@@ -23,13 +27,21 @@ const textLinks: { label: string; href: string }[] = [
 
 <nav class="bg-white">
 	<div class="menu-header flex justify-between items-center px-4 py-2">
-        <a href="/" class="flex items-center">
-            <img src="assets/svg/logo.webp" alt="Logo" class="h-6 w-auto mr-2"> <!-- Agrego el logo como una imagen en icono-->
-            <span class="ml-2 font-bold">
-                <span class="text-anounce">Anounce</span><br> 
-                <span class="text-me">me</span> 
-            </span>
+        <a href="/" class="flex items-center gap-10">
+            <img src="assets/svg/logobig.webp" alt="Logo" class="h-10 w-auto mr-2"> 
+			
         </a>
+		<div class="flex items-center gap-4">
+            {iconLinks.map(({ label, href, icon, target }) => (
+                <a href={href} target={target} class="nav-items">
+                    <Icon icon={icon} />
+                </a>
+            ))}
+            <div class="theme-toggle">
+                <ThemeToggle />
+            </div>
+        </div>
+	</div>
         <menu-button>
             <template>
                 <button class="menu-button" aria-expanded="false">
@@ -38,7 +50,6 @@ const textLinks: { label: string; href: string }[] = [
                 </button>
             </template>
         </menu-button>
-    </div>
     <noscript>...</noscript>
     <ul class="nav-items">
         {
@@ -53,8 +64,10 @@ const textLinks: { label: string; href: string }[] = [
                                     Astro.url.pathname === href ||
                                     (href !== '/' && Astro.url.pathname.startsWith(href)),
                             },
+							
                         ]}
                         href={href}
+						class="nav-items"
                     >
                         {label}
                     </a>
@@ -69,10 +82,7 @@ const textLinks: { label: string; href: string }[] = [
         </ul>
         <div class="menu-footer flex justify-between items-center px-4 py-2">
             <div class="socials">
-                { /* Aquí puedes agregar tus íconos de redes sociales usando Tailwind */ }
-            </div>
-            <div class="theme-toggle">
-                <ThemeToggle />
+                
             </div>
         </div>
     </div>
@@ -123,18 +133,20 @@ const textLinks: { label: string; href: string }[] = [
 		z-index: 9999;
 		position: relative;
 		font-family: var(--font-brand);
-		font-weight: 500;
-		margin-bottom: 3.5rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+		
 	}
-        .menu-header {
+    .menu-header {
 		display: flex;
-		justify-content: space-between;
-		gap: 0.5rem;
-		padding: 1.5rem;
+		
+	}
+	.theme-toggle {
+		margin-inline-end: auto; 
 	}
 	.site-title {
 		display: flex;
-		gap: 0.5rem;
+		gap: 12.5rem;
 		align-items: center;
 		line-height: 1.1;
 		color: var(--gray-0);
@@ -144,12 +156,12 @@ const textLinks: { label: string; href: string }[] = [
 	.menu-button {
 		position: relative;
 		display: flex;
-		border: 0;
-		border-radius: 999rem;
-		padding: 0.5rem;
-		font-size: 1.5rem;
+		border: 9;
+		border-radius: 9999rem;
+		padding: 1.5rem;
+		font-size: 3.5rem;
 		color: var(--gray-300);
-		background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+		background: radial-gradient(var(--gray-900), var(--gray-800) 50%);
 		box-shadow: var(--shadow-md);
 	}
 
@@ -180,23 +192,25 @@ const textLinks: { label: string; href: string }[] = [
 
 	.nav-items {
         display: flex;
-        justify-content: center; /* Centrar los enlaces horizontalmente */
-        margin: 0 auto; /* Alinear al centro */
-        padding: 1rem 0; /* Agregar espacio entre los enlaces y el borde */
+        justify-content: center;
+        margin: 0 auto; 
+        padding: 1rem 0; 
+		transition: transform 0.99s ease;
     }
 
     .nav-items li {
-        margin: 0 1rem; /* Espacio entre los enlaces */
-        position: relative; /* Posición relativa para animación */
+        margin: 0 1rem; 
+        position: relative; 
     }
 	.nav-items li a {
     position: relative;
     text-decoration: none;
-    color: var(--gray-300); /* Color de texto base */
-    transition: transform 0.3s ease; /* Transición para el efecto de movimiento */
+    color: var(--gray-300); 
+    transition: transform 0.5s ease; 
 }
 	.nav-items li a:hover {
-		transform: translateY(-2px); /* Mover hacia arriba al pasar el ratón */
-		color: var(--gray-400); /* Cambia el color de texto en hover */
+		transform: translateY(-6px); 
+		color: var(--gray-400); 
+		text-decoration: underline;
 	}
 </style>
