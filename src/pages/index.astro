@@ -57,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
     <b>Texto descriptivo del Slide 1.</b>s
   </a>
 
-  <a 
+  <a
       class="swiper-slide"
       href="src/content/servicios/rrss.md"
       data-pswp-width="800" data-pswp-height="800"
@@ -130,6 +130,10 @@ import 'swiper/css';
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
   // Core de Swiper y estilos
+  	import Swiper from 'swiper';
+	import 'swiper/css';
+	import { Navigation } from "swiper/modules";
+	import "swiper/css/navigation";
 
   // Configurar Swiper
   const swiper = new Swiper(".swiper-container", {
@@ -187,7 +191,7 @@ import "swiper/css/navigation";
 		}
 	}
 
-	/* ====================================================== */
+	
 
 	.section {
 		display: grid;
@@ -267,8 +271,6 @@ import "swiper/css/navigation";
 			grid-area: cta;
 		}
 	}
-
-	/* ====================================================== */
 
 	.mention-card {
 		display: flex;
