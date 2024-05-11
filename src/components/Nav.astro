@@ -9,8 +9,6 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: 'Inicio', href: '/' },
 	{ label: 'Servicios', href: '/servicios/' },
 	{ label: 'Contacto', href: '/contacto/' },
-    { label: 'Aviso de Cookies', href: '/cookies/' },
-    { label: 'Términos y condiciones', href: '/terminos/' },
 ];
 
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; target?: string }[] = [
@@ -26,9 +24,9 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
 
 
 <nav class="bg-white">
-	<div class="menu-header flex justify-between items-center px-4 py-2">
-        <a href="/" class="flex items-center gap-10">
-            <img src="assets/svg/logobig.webp" alt="Logo" class="h-10 w-auto mr-2"> 
+	<div class="menu-header flex justify-between items-center px-24 py-2">
+        <a href="/" class="flex items-center">
+            <img src="assets/svg/logobig.webp" alt="Logo" class="h-10 w-auto"> 
 			
         </a>
 		<div class="flex items-center gap-4">
@@ -42,7 +40,9 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
             </div>
         </div>
 	</div>
-        <menu-button>
+
+    <noscript>
+		<menu-button>
             <template>
                 <button class="menu-button" aria-expanded="false">
                     <span class="sr-only">Menu</span>
@@ -50,7 +50,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
                 </button>
             </template>
         </menu-button>
-    <noscript>...</noscript>
+	</noscript>
     <ul class="nav-items">
         {
             textLinks.map(({ label, href }) => (
@@ -79,12 +79,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
     <div id="menu-content" hidden>
         <ul class="nav-items">
           
-        </ul>
-        <div class="menu-footer flex justify-between items-center px-4 py-2">
-            <div class="socials">
-                
-            </div>
-        </div>
+        
     </div>
 </nav>
 
@@ -130,33 +125,31 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
 
 <style>
 	nav {
-		z-index: 9999;
+		z-index: 999;
 		position: relative;
 		font-family: var(--font-brand);
-		font-weight: 700;
-		margin-bottom: 0.5rem;
+		font-weight: 1300;
+		margin-bottom: 5.5rem;
+		
 		
 	}
     .menu-header {
 		display: flex;
+		ustify-content: space-between;
+		gap: 0.5rem;
+		padding: 1.5rem;
 		
 	}
 	.theme-toggle {
-		margin-inline-end: auto; 
-	}
-	.site-title {
 		display: flex;
-		gap: 12.5rem;
 		align-items: center;
-		line-height: 1.1;
-		color: var(--gray-0);
-		text-decoration: none;
+		height: calc(var(--icon-size) + 2 * var(--icon-padding));
 	}
 
 	.menu-button {
 		position: relative;
 		display: flex;
-		border: 9;
+		border: 30;
 		border-radius: 9999rem;
 		padding: 1.5rem;
 		font-size: 3.5rem;
@@ -180,7 +173,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
 		inset: -1px;
 		content: '';
 		background: var(--gradient-stroke);
-		border-radius: 999rem;
+		border-radius: 9999rem;
 		z-index: -1;
 	}
 
@@ -194,7 +187,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
         display: flex;
         justify-content: center;
         margin: 0 auto; 
-        padding: 1rem 0; 
+        padding: 1rem 0em 1rem;
 		transition: transform 0.99s ease;
     }
 
@@ -213,4 +206,5 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths; ta
 		color: var(--gray-400); 
 		text-decoration: underline;
 	}
+	
 </style>
