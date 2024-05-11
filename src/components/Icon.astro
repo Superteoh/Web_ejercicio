@@ -21,8 +21,8 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width="40"
-	height="40"
+	width="50"
+	height="0"
 	viewBox="0 0 256 256"
 	aria-hidden="true"
 	stroke={gradient ? `url(#${gradientId})` : color}
@@ -52,6 +52,6 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 	svg {
 		vertical-align: middle;
 		width: var(--size, 1em);
-		height: var(--size, 1em);
+		height: var(--size, 1,1em);
 	}
 </style>

@@ -1,10 +1,121 @@
 ---
-import Layout from '../layouts/Layout.astro';
 
+import Layout from '../layouts/Layout.astro';
+import Pill from '../components/Pill.astro';
+import Icon from '../components/Icon.astro';
+import Props from '../src/pages/contacto.astro';
 
 ---
+<Layout>
+  <div class="container mx-auto">
+    <div class="grid lg:grid-cols-2 gap-20 lg:gap-48">
+      <!-- Div para el título -->
+      <div class="lg:col-span-1 flex flex-col justify-center items-start">
+        <header>
+          <h1 class="custom-title">
+            Hola, somos <span class="orange-text"><strong>announce me</strong></span> y queremos presentarte nuestras ideas
+          </h1>
+          <div class="roles flex justify-center items-center">
+            <Pill href="mailto:nuriacasabn@gmail.com">Contáctanos<Icon icon="paper-plane-tilt" size="1.2em" /></Pill>
+          </div>
+        </header>
+      </div>
+      <!-- Div para la imagen -->
+      <div class="lg:col-span-1 mb-40 lg:mb-0">
+        <img
+          alt="inicio"
+          width="480"
+          height="420"
+          src="/assets/inicio.jpg"
+        />
+      </div>
+    </div>
+  </div>
 
-<Layout></Layout>
+
+<!-- Contenedor principal de Swiper -->
+<div class="swiper-container mx-auto"">
+  <!-- Wrapper adicional requerido -->
+  <div class="swiper-wrapper" id="my-slider">
+    <!-- Los slides -->
+    <div class="swiper-slide">
+      <a href="src/content/servicios/desarrolloweb.md" data-pswp-width="9800" data-pswp-height="3800">
+        <div class="text-center">
+            <img src="assets/desarrolloweb.webp" alt="">
+            <b style="font-size: 2em;">Desarrollo Web</b>
+            <b style="font-size: 0.7em;">Programación personalizada de tu presencia online: web corporativa, ecommerce, hosting profesional</b>
+        </div>
+        <!-- Botones de navegación -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </a>
+    </div>
+    <div class="swiper-slide">
+      <a href="src/content/servicios/rrss.md" data-pswp-width="9800" data-pswp-height="3800">
+        <div class="text-center">
+            <img src="assets/rrss.webp" alt="">
+            <b style="font-size: 2em;">Redes Sociales</b>
+            <b style="font-size: 0.7em;">Creamos contenidos de alta calidad destinados a maximizar los resultados de tu estrategia de comunicación online</b>
+        </div>
+        <!-- Botones de navegación -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </a>
+    </div>
+    <div class="swiper-slide">
+      <a href="src/content/servicios/seo.md" data-pswp-width="9800" data-pswp-height="3800">
+        <div class="text-center">
+          <img src="assets/seo.webp" alt="">
+          <b style="font-size: 2em;">SEO</b>
+          <b style="font-size: 0.7em;">Te ayudamos a mejorar el posicionamiento de tu sitio web en buscadores para que los clientes te encuentren</b>
+      </div>
+      <!-- Botones de navegación -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="src/content/servicios/blogs.md" data-pswp-width="9800" data-pswp-height="3800">
+      <div class="text-center">
+          <img src="assets/blogs.webp" alt="">
+          <b style="font-size: 2em;">Redaccion de Copy y Blog</b>
+          <b style="font-size: 0.7em;">Comunicamos la esencia de tu marca y de tu negocio para llegar a tu público objetivo con el mensaje clave</b>
+      </div>
+      <!-- Botones de navegación -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="src/content/servicios/googleads.md" data-pswp-width="9800" data-pswp-height="3800">
+      <div class="text-center">
+          <img src="assets/googleads.webp" alt="">
+          <b style="font-size: 2em;">Google Ads</b>
+          <b style="font-size: 0.7em;">Desarrollamos campañas altamente efectivas de Google Ads para atraer clientes a tu sitio web de manera constante</b>
+      </div>
+      <!-- Botones de navegación -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </a>
+  </div>
+  <div class="swiper-slide">
+    <a href="src/content/servicios/networking.md" data-pswp-width="9800" data-pswp-height="3800">
+      <div class="text-center">
+          <img src="assets/networking.webp" alt="">
+          <b style="font-size: 2em;">Networking para profesionales</b>
+          <b style="font-size: 0.7em;">La colaboración entre empresas y socios es parte de nuestra esencia en Announceme. ¡Llegamos más lejos en equipo!</b>
+    </div>
+    <!-- Botones de navegación -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    </a>
+  </div>
+
+  </div>
+</div>
+
+</Layout>
+
 <style>
   .swiper-container {
     width: 80%; /* Ajusta el ancho del contenedor según tu preferencia */
@@ -38,91 +149,16 @@ import Layout from '../layouts/Layout.astro';
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto para mejor legibilidad */
     z-index: 1; /* Asegura que el texto esté sobre la imagen */
   }
+
+  .custom-title {
+    font-size: 2.5rem; 
+    color: brown; 
+  }
+
+  .orange-text {
+    color: orange; 
+  }
 </style>
-
-
-<!-- Contenedor principal de Swiper -->
-<div class="swiper-container">
-  <!-- Wrapper adicional requerido -->
-  <div class="swiper-wrapper" id="my-slider">
-    <!-- Los slides -->
-      <a 
-      class="swiper-slide"
-      href="src/content/servicios/desarrolloweb.md"
-      data-pswp-width="800" data-pswp-height="800"
-      data-cropped="true"
-  >
-    <img src="assets/desarrolloweb.webp" alt="">
-    <b>Desarrollo Web</b>
-    <b>Texto descriptivo del Slide 1.</b>s
-  </a>
-
-  <a
-      class="swiper-slide"
-      href="src/content/servicios/rrss.md"
-      data-pswp-width="800" data-pswp-height="800"
-      data-cropped="true"
-    >
-      <img src="assets/rrss.webp" alt="">
-      <b>Redes Sociales</b>
-      <b>Texto descriptivo del Slide 2.</b>
-    </a>
-    <a 
-      class="swiper-slide"
-      href="src/content/servicios/seo.md"
-      data-pswp-width="800" data-pswp-height="800"
-      data-cropped="true"
-    >
-      <img src="assets/seo.webp" alt="">
-      <b>SEO</b>
-      <b>Texto descriptivo del Slide 3.</b>
-    </a>
-    <a 
-      class="swiper-slide"
-      href="src/content/servicios/blogs.md"
-      data-pswp-width="800" data-pswp-height="800"
-      data-cropped="true"
-    >
-      <img src="/assets/blogs.webp" alt="">
-      <b>Redaccion de Copy y Blog</b>
-      <b>Texto descriptivo del Slide 4.</b>
-    </a>
-    <a 
-      class="swiper-slide"
-      href="src/content/servicios/googleads.md"
-      data-pswp-width="800" data-pswp-height="800"
-      data-cropped="true"
-    >
-      <img src="/assets/googleads.webp" alt="">
-      <b>Google Ads</b>
-      <b>Texto descriptivo del Slide 5.</b>
-    </a>
-    <a 
-      class="swiper-slide"
-      href="src/content/servicios/networking.md"
-      data-pswp-width="800" data-pswp-height="800"
-      data-cropped="true"
-    >
-      <img src="/assets/networking.webp" alt="">
-      <b>Networking para profesionales</b>
-      <b>Texto descriptivo del Slide 6</b>
-
-    </a>
-  </div>
-
-  <!-- Botones de navegación -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-
-<div class="fixed bottom-0 w-full bg-gray-900 text-white p-4">
-
-  <div class="max-w-screen-lg mx-auto flex justify-between items-center">
-    <p class="text-sm">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
-    <button class="bg-white text-gray-900 px-4 py-2 rounded shadow hover:bg-gray-200">Aceptar</button>
-  </div>
-</div>
-
 
 <script>
 import Swiper from 'swiper';
@@ -130,10 +166,7 @@ import 'swiper/css';
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
   // Core de Swiper y estilos
-  	import Swiper from 'swiper';
-	import 'swiper/css';
-	import { Navigation } from "swiper/modules";
-	import "swiper/css/navigation";
+  	
 
   // Configurar Swiper
   const swiper = new Swiper(".swiper-container", {
@@ -151,47 +184,18 @@ import "swiper/css/navigation";
 
 <style>
 
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 2rem;
-	}
-
 	.roles {
 		display: none;
 	}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
 	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
 
 		.roles {
 			margin-top: 0.5rem;
 			display: flex;
 			gap: 0.5rem;
 		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
 	}
-
-	
 
 	.section {
 		display: grid;
@@ -291,5 +295,4 @@ import "swiper/css/navigation";
 			height: 9.5rem;
 		}
 	}
-	@import "/src/styles/global.css";
 </style>

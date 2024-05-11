@@ -1,0 +1,109 @@
+---
+import Icon from './Icon.astro';
+const currentYear = new Date().getFullYear();
+---
+
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<!-- Contenedor modal para el mensaje de cookies -->
+<div id="cookie-modal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-75 flex justify-center items-center z-50 hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+        <p class="text-sm mb-4">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
+        <button id="accept-button" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">Aceptar</button>
+    </div>
+</div>
+
+        <!-- Enlaces adicionales del footer -->
+        <div id="app">
+            <div class="policies flex flex-col">
+				<a href="#" class="block mb-2 hover:underline">Aviso de Cookies</a>
+				<a href="#" class="block mb-2 hover:underline">Política de Privacidad</a>
+				<a href="#" class="block mb-2 hover:underline">Términos y condiciones</a>
+            </div>
+            <p class="text-center">&copy; {currentYear} announce.me</p>
+        </div>
+
+
+<script>
+		
+	// Verificar si el usuario ha aceptado las cookies previamente
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+
+    // Si las cookies no han sido aceptadas previamente, mostrar el modal
+    if (!cookiesAccepted) {
+        const cookieModal = document.getElementById('cookie-modal');
+        cookieModal.style.display = 'flex';
+    }
+
+    // Obtener referencia al botón de aceptar
+    const acceptButton = document.getElementById('accept-button');
+
+    // Agregar un controlador de eventos para el clic en el botón de aceptar
+    acceptButton.addEventListener('click', function() {
+        // Ocultar el modal de cookies al hacer clic en el botón de aceptar
+        const cookieModal = document.getElementById('cookie-modal');
+        cookieModal.style.display = 'none';
+
+        // Almacenar en el almacenamiento local que el usuario ha aceptado las cookies
+        localStorage.setItem('cookiesAccepted', 'true');
+    });
+</script>
+
+
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		margin-top: auto;
+		padding: 3rem 2rem 3rem;
+		text-align: center;
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+        position: fixed;
+        bottom: 0;
+	}
+
+	footer a {
+		color: var(--gray-400);
+		text-decoration: 3px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	footer a:hover,
+	footer a:focus {
+		text-decoration-color: currentColor;
+	}
+
+	.group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.socials {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	@media (min-width: 50em) {
+		footer {
+			flex-direction: row;
+			justify-content: space-between;
+			padding: 2.5rem 5rem;
+		}
+
+		.group {
+			flex-direction: row;
+			gap: 2rem;
+			flex-wrap: wrap;
+		}
+
+		.socials {
+			justify-content: flex-end;
+		}
+	}
+</style>

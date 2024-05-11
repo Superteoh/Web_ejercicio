@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+---
+<div class="pill">
+    <!-- Renderizamos un enlace de correo electrónico -->
+    <a href={`mailto:${href}`} class="pill-content">
+      <slot />
+    </a>
+  </div>
+<style>
+	.pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--accent-text-over);
+    border: 1px solid var(--accent-regular);
+    background-color: var(--accent-regular);
+    border-radius: 999rem;
+    font-size: var(--text-md);
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  .pill-content {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    text-decoration: none; 
+    color: inherit; 
+  }
+</style>
