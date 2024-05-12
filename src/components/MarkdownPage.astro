@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+---
+
+<BaseLayout>
+  <div class="markdown-content">
+    <!-- Aquí se mostrará el contenido Markdown -->
+  </div>
+</BaseLayout>
+
+<style>
+  /* Estilos para el contenido Markdown */
+  .markdown-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Estilos para los elementos Markdown */
+  .markdown-content h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .markdown-content p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 1em;
+  }
+
+  /* Agrega estilos adicionales según sea necesario */
+</style>
