@@ -4,4 +4,115 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 ---
 <Layout>
+    <div class="service-container">
+        <a href="/src/content/servicios/desarrolloweb.md" data-pswp-width="9800" data-pswp-height="3800" class="service-section">
+            <div class="service-image">
+                <img src="/assets/desarrolloweb.webp" alt="Desarrollo Web">
+            </div>
+            <div class="service-details">
+                <h2>Desarrollo web</h2>
+                <p>Programación personalizada de tu presencia online: web corporativa, ecommerce, hosting profesional. </p>
+            </div>
+        </a>
+        <a href="/src/content/servicios/blogs.md" data-pswp-width="9800" data-pswp-height="3800" class="service-section reverse">
+            <div class="service-details">
+                <h2>Redacción de copy y blogs</h2>
+                <p>Comunicamos la esencia de tu marca y de tu negocio para llegar a tu público objetivo con el mensaje clave.</p>
+            </div>
+            <div class="service-image">
+                <img src="/assets/blogs.webp" alt="Blogs">
+            </div>
+        </a>
+        <a href="/src/content/servicios/rrss.md" data-pswp-width="9800" data-pswp-height="3800" class="service-section">
+            <div class="service-image">
+                <img src="/assets/rrss.webp" alt="Redes sociales">
+            </div>
+            <div class="service-details">
+                <h2>Redes Sociales</h2>
+                <p>Creamos contenidos de alta calidad destinados a maximizar los resultados de tu estrategia de comunicación online. </p>
+            </div>
+        </a>
+        <a href="/src/content/servicios/seo.md" data-pswp-width="9800" data-pswp-height="3800" class="service-section reverse">
+            <div class="service-details">
+                <h2>SEO</h2>
+                <p>Te ayudamos a mejorar el posicionamiento de tu sitio web en buscadores para que los clientes te encuentren.</p>
+            </div>
+            <div class="service-image">
+                <img src="/assets/seo.webp" alt="SEO">
+            </div>
+        </a>
+        <a href="/src/content/servicios/googleads.md" data-pswp-width="9800" data-pswp-height="3800" class="service-section">
+            <div class="service-image">
+                <img src="/assets/googleads.webp" alt="Google Ads">
+            </div>
+            <div class="service-details">
+                <h2>Google Ads</h2>
+                <p>Desarrollamos campañas altamente efectivas de Google Ads para atraer clientes a tu sitio web de manera constante </p>
+            </div>
+        </a>
+        <a href="/src/content/servicios/networking.md" data-pswp-width="9800" data-pswp-height="3800" class="service-section reverse">
+            <div class="service-details">
+                <h2>Networking de profesionales</h2>
+                <p>La colaboración entre empresas y socios es parte de nuestra esencia en Announceme. ¡Llegamos más lejos en equipo!
+                </p>
+            </div>
+            <div class="service-image">
+                <img src="/assets/networking.webp" alt="Networking">
+            </div>
+        </a>
+    </div>
 </Layout>
+
+<style>
+* Estilos globales */
+.service-container {
+    overflow-y: auto; /* Permitir desplazamiento vertical cuando el contenido exceda el tamaño de la pantalla */
+    max-height: calc(100vh - 100px); /* Ajustar la altura máxima del contenedor al 100% del viewport menos el espacio del encabezado y pie de página */
+}
+
+.service-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 25px; /* Espacio entre cada sección de servicio */
+    border: 5px solid #ccc; /* Agregar un borde alrededor de cada contenedor de servicio */
+}
+
+.service-image {
+    flex: 1;
+    margin-right: 10px; /* Espacio entre la imagen y los detalles del servicio */
+}
+
+.service-image img {
+    width: 100%; /* Ajustar la imagen al contenedor */
+    height: auto;
+    max-width: 300px; /* Establecer un ancho máximo para las imágenes */
+    max-height: 200px; /* Establecer una altura máxima para las imágenes */
+}
+
+.service-details {
+    flex: 2;
+}
+
+.service-details h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.service-details p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* Estilos específicos para la clase reverse */
+.service-section.reverse .service-image {
+    order: 2; /* Cambiar el orden de la imagen */
+    margin-left: 20px; /* Espacio entre la imagen y los detalles del servicio */
+}
+
+.service-section.reverse .service-details {
+    order: 1; /* Cambiar el orden de los detalles del servicio */
+    margin-right: 20px; /* Espacio entre los detalles del servicio y la imagen */
+}
+</style>
